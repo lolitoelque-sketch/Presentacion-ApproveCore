@@ -24,7 +24,7 @@
               orient="auto"
               markerUnits="strokeWidth"
             >
-              <path d="M0,0 L0,6 L8,3 z" fill="#ffb28a" />
+              <path d="M0,0 L0,6 L8,3 z" fill="#1f6f95" />
             </marker>
 
             <marker
@@ -36,7 +36,7 @@
               orient="auto"
               markerUnits="strokeWidth"
             >
-              <path d="M0,0 L0,6 L8,3 z" fill="#6ba5c9" />
+              <path d="M0,0 L0,6 L8,3 z" fill="#1f6f95" />
             </marker>
           </defs>
 
@@ -385,31 +385,26 @@ const pathLit = (targetId) => {
   position: fixed;
   inset: 0;
   overflow: hidden;
-  color: #d7deea;
+  color: #4f3e32;
   background:
-    radial-gradient(circle at 20% 18%, rgba(125, 211, 252, 0.08), transparent 30%),
-    radial-gradient(circle at 82% 78%, rgba(255, 178, 138, 0.07), transparent 28%),
-    linear-gradient(135deg, #0b0f14 0%, #10141b 48%, #0b0f14 100%);
+    linear-gradient(rgba(126, 93, 67, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 93, 67, 0.075) 1px, transparent 1px),
+    radial-gradient(circle, rgba(116, 88, 68, 0.18) 1px, transparent 1.4px),
+    linear-gradient(180deg, #f8f4ed 0%, #eee8df 100%);
+  background-size: 72px 72px, 72px 72px, 24px 24px, auto;
   font-family: "Cascadia Code", "JetBrains Mono", "Fira Code", Consolas, ui-monospace, monospace;
 }
 
 .viewport::before {
   content: "";
   position: absolute;
-  inset: -80px;
-  background-image:
-    linear-gradient(rgba(125, 211, 252, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 211, 252, 0.055) 1px, transparent 1px);
-  background-size: 52px 52px;
-  transform: rotate(-2deg) scale(1.05);
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.36));
+  inset: 0;
+  background: linear-gradient(180deg, rgba(244, 240, 232, 0), rgba(227, 234, 232, 0.76));
+  pointer-events: none;
 }
 
 .ambient {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(12px);
-  opacity: 0.6;
+  display: none;
 }
 
 .ambient-a {
@@ -440,16 +435,16 @@ const pathLit = (targetId) => {
 .progress span {
   width: 12px;
   height: 12px;
-  border: 1px solid rgba(139, 148, 166, 0.56);
+  border: 1px solid rgba(124, 45, 18, 0.28);
   border-radius: 999px;
-  background: rgba(15, 20, 27, 0.72);
+  background: rgba(250, 247, 241, 0.86);
   transition: width 450ms ease, background 450ms ease, border-color 450ms ease;
 }
 
 .progress span.done,
 .progress span.active {
-  border-color: #8bd7ff;
-  background: #8bd7ff;
+  border-color: #1f6f95;
+  background: #1f6f95;
 }
 
 .progress span.active {
@@ -479,12 +474,12 @@ const pathLit = (targetId) => {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle, rgba(139, 148, 166, 0.22) 1px, transparent 1.5px),
-    linear-gradient(rgba(125, 211, 252, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 211, 252, 0.07) 1px, transparent 1px);
-  background-size: 40px 40px, 160px 160px, 160px 160px;
-  border: 1px solid rgba(139, 148, 166, 0.18);
-  border-radius: 6px;
+    radial-gradient(circle, rgba(116, 88, 68, 0.2) 1px, transparent 1.5px),
+    linear-gradient(rgba(126, 93, 67, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 93, 67, 0.08) 1px, transparent 1px);
+  background-size: 42px 42px, 160px 160px, 160px 160px;
+  border: 0;
+  border-radius: 0;
 }
 
 .paths {
@@ -496,28 +491,28 @@ const pathLit = (targetId) => {
 
 .flow-path {
   fill: none;
-  stroke: rgba(255, 178, 138, 0.86);
-  stroke-width: 2.2;
+  stroke: rgba(31, 111, 149, 0.92);
+  stroke-width: 3;
   stroke-linecap: round;
-  stroke-dasharray: 12 18;
+  stroke-dasharray: 14 18;
   opacity: 1;
-  animation: dash-flow 340ms linear infinite;
+  animation: dash-flow 520ms linear infinite;
   transition: stroke 450ms ease, stroke-width 450ms ease;
 }
 
 .flow-path.generate {
-  stroke: rgba(107, 165, 201, 0.84);
-  stroke-dasharray: 5 12;
-  animation-duration: 460ms;
+  stroke: rgba(31, 111, 149, 0.92);
+  stroke-dasharray: 14 18;
+  animation-duration: 520ms;
 }
 
 .flow-path.lit {
-  stroke: #ffb28a;
-  stroke-width: 2.8;
+  stroke: #1f6f95;
+  stroke-width: 3.6;
 }
 
 .flow-path.generate.lit {
-  stroke: #6ba5c9;
+  stroke: #1f6f95;
 }
 
 @keyframes dash-flow {
@@ -529,14 +524,13 @@ const pathLit = (targetId) => {
 .node {
   position: absolute;
   z-index: 3;
-  width: 250px;
-  min-height: 108px;
-  padding: 14px 18px;
-  border: 1px solid rgba(139, 148, 166, 0.34);
-  border-radius: 4px;
-  background: rgba(11, 15, 20, 0.76);
-  box-shadow: none;
-  backdrop-filter: blur(12px);
+  width: 270px;
+  min-height: 132px;
+  padding: 18px 20px;
+  border: 1px solid #c8b8a8;
+  border-radius: 6px;
+  background: rgba(250, 247, 241, 0.9);
+  box-shadow: 0 12px 22px rgba(92, 67, 49, 0.06);
   cursor: pointer;
   transition:
     transform 520ms ease,
@@ -546,49 +540,45 @@ const pathLit = (targetId) => {
 }
 
 .node:hover {
-  transform: translateY(-12px) scale(1.025);
-  border-color: rgba(139, 215, 255, 0.68);
-  background:
-    linear-gradient(135deg, rgba(125, 211, 252, 0.14), rgba(11, 15, 20, 0.82)),
-    rgba(13, 20, 28, 0.92);
+  transform: translateY(-8px) scale(1.015);
+  border-color: rgba(31, 111, 149, 0.72);
+  background: #fdfaf4;
   box-shadow:
-    0 18px 34px rgba(0, 0, 0, 0.36),
-    0 0 0 4px rgba(125, 211, 252, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 18px 34px rgba(92, 67, 49, 0.12),
+    0 0 0 5px rgba(31, 111, 149, 0.08);
 }
 
 .node.active {
-  transform: translateY(-8px);
-  border-color: #ffb28a;
-  background: rgba(36, 28, 24, 0.88);
-  box-shadow: 0 0 0 5px rgba(255, 178, 138, 0.1);
+  transform: translateY(-6px);
+  border-color: #2a7192;
+  background: rgba(221, 232, 236, 0.9);
+  box-shadow:
+    0 15px 24px rgba(31, 111, 149, 0.16),
+    0 0 0 5px rgba(31, 111, 149, 0.1);
 }
 
 .node.active:hover {
-  transform: translateY(-14px) scale(1.03);
-  border-color: #ffb28a;
-  background:
-    linear-gradient(135deg, rgba(255, 178, 138, 0.16), rgba(36, 28, 24, 0.9)),
-    rgba(36, 28, 24, 0.9);
+  transform: translateY(-10px) scale(1.02);
+  border-color: #2a7192;
+  background: rgba(221, 232, 236, 0.96);
   box-shadow:
-    0 20px 38px rgba(0, 0, 0, 0.42),
-    0 0 0 5px rgba(255, 178, 138, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 20px 38px rgba(31, 111, 149, 0.18),
+    0 0 0 5px rgba(31, 111, 149, 0.12);
 }
 
 .node.previous {
-  border-color: rgba(139, 148, 166, 0.5);
+  border-color: rgba(124, 45, 18, 0.26);
 }
 
 .node-topline {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
-  color: #8b94a6;
-  font-size: 11px;
+  margin-bottom: 18px;
+  color: #8d7b6d;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
@@ -598,8 +588,9 @@ const pathLit = (targetId) => {
   height: 28px;
   width: 28px;
   border-radius: 999px;
-  color: #0b0f14;
-  background: #8bd7ff;
+  color: #fff8ef;
+  background: #7c2d12;
+  letter-spacing: 0;
 }
 
 .node-title {
@@ -609,13 +600,13 @@ const pathLit = (targetId) => {
   min-height: 30px;
   padding: 0;
   border: 0;
-  color: #8bd7ff;
+  color: #7c2d12;
   background: transparent;
   font: inherit;
   text-align: left;
   word-break: normal;
   overflow-wrap: anywhere;
-  font-size: 28px;
+  font-size: 31px;
   font-weight: 900;
   line-height: 1;
   letter-spacing: 0;
@@ -623,24 +614,24 @@ const pathLit = (targetId) => {
 
 .node-title:hover,
 .node-title:focus-visible {
-  color: #ffb28a;
+  color: #1f6f95;
 }
 
 .node-title:focus-visible {
-  outline: 2px solid rgba(255, 178, 138, 0.72);
+  outline: 2px solid rgba(31, 111, 149, 0.72);
   outline-offset: 6px;
   border-radius: 4px;
 }
 
 .node-action {
   display: block;
-  margin-top: 8px;
+  margin-top: 14px;
   padding: 0;
   border: 0;
   border-radius: 0;
-  color: #8b94a6;
+  color: #7f766d;
   background: transparent;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 
@@ -648,7 +639,7 @@ const pathLit = (targetId) => {
 .data,
 .dashboard,
 .close {
-  border-top-color: #8bd7ff;
+  border-color: #c8b8a8;
 }
 
 .approval,
@@ -656,7 +647,7 @@ const pathLit = (targetId) => {
 .budget,
 .cart,
 .po {
-  border-top-color: #ffb28a;
+  border-color: #c8b8a8;
 }
 
 .cluster {
@@ -666,14 +657,14 @@ const pathLit = (targetId) => {
   grid-template-columns: repeat(2, 54px);
   gap: 14px;
   padding: 20px;
-  border: 1px dashed rgba(139, 148, 166, 0.28);
+  border: 1px dashed rgba(124, 45, 18, 0.22);
   border-radius: 4px;
-  background: rgba(11, 15, 20, 0.42);
+  background: rgba(250, 247, 241, 0.38);
 }
 
 .cluster span {
   grid-column: 1 / -1;
-  color: #8b94a6;
+  color: #8d7b6d;
   font-size: 16px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -684,9 +675,9 @@ const pathLit = (targetId) => {
   display: block;
   width: 54px;
   height: 54px;
-  border: 1px solid rgba(139, 148, 166, 0.22);
+  border: 1px solid rgba(124, 45, 18, 0.16);
   border-radius: 4px;
-  background: rgba(125, 211, 252, 0.08);
+  background: rgba(31, 111, 149, 0.07);
 }
 
 .cluster-data {
@@ -700,17 +691,17 @@ const pathLit = (targetId) => {
 }
 
 .cluster-automation i {
-  background: rgba(255, 178, 138, 0.08);
+  background: rgba(124, 45, 18, 0.06);
 }
 
 .canvas-label {
   position: absolute;
   z-index: 2;
   padding: 10px 14px;
-  border: 1px solid rgba(139, 148, 166, 0.28);
+  border: 1px solid #d7cabd;
   border-radius: 999px;
-  color: #8bd7ff;
-  background: rgba(11, 15, 20, 0.76);
+  color: #7c2d12;
+  background: rgba(250, 247, 241, 0.82);
   font-size: 16px;
   font-weight: 800;
   letter-spacing: 0.05em;
@@ -746,14 +737,11 @@ const pathLit = (targetId) => {
   width: clamp(340px, 33vw, 520px);
   max-height: min(560px, 70vh);
   padding: 44px 46px;
-  border: 1px solid rgba(148, 163, 184, 0.26);
-  border-radius: 4px;
-  color: #e5e7eb;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(125, 211, 252, 0.08), transparent 34%),
-    linear-gradient(135deg, rgba(14, 18, 25, 0.98), rgba(8, 12, 18, 0.99)),
-    #090d14;
-  box-shadow: 0 34px 90px rgba(3, 7, 18, 0.42);
+  border: 1px solid #d7cabd;
+  border-radius: 6px;
+  color: #4f3e32;
+  background: rgba(250, 247, 241, 0.98);
+  box-shadow: 0 34px 90px rgba(92, 67, 49, 0.24);
   pointer-events: auto;
 }
 
@@ -765,10 +753,10 @@ const pathLit = (targetId) => {
   place-items: center;
   width: 34px;
   height: 34px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border: 1px solid #d7cabd;
   border-radius: 4px;
-  color: #94a3b8;
-  background: rgba(15, 23, 42, 0.72);
+  color: #7f766d;
+  background: #fffaf2;
   cursor: pointer;
   font-size: 18px;
   line-height: 1;
@@ -777,13 +765,14 @@ const pathLit = (targetId) => {
 .modal-close:hover,
 .modal-close:focus-visible {
   color: #ffffff;
-  border-color: #fb923c;
+  background: #7c2d12;
+  border-color: #7c2d12;
 }
 
 .modal-kicker {
   display: block;
   margin-bottom: 22px;
-  color: #94a3b8;
+  color: #8d7b6d;
   font-size: 15px;
   font-weight: 900;
   letter-spacing: 0.18em;
@@ -792,7 +781,7 @@ const pathLit = (targetId) => {
 
 .modal-window h2 {
   margin: 0;
-  color: #ffb28a;
+  color: #7c2d12;
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 900;
   line-height: 1;
@@ -801,7 +790,7 @@ const pathLit = (targetId) => {
 
 .modal-window p {
   margin: 28px 0 0;
-  color: #f8fafc;
+  color: #4f3e32;
   font-size: clamp(19px, 1.8vw, 25px);
   font-weight: 700;
   line-height: 1.45;
@@ -810,15 +799,15 @@ const pathLit = (targetId) => {
 .modal-note {
   margin-top: 48px;
   padding: 22px;
-  border: 1px solid rgba(148, 163, 184, 0.28);
+  border: 1px solid #d7cabd;
   border-radius: 4px;
-  background: rgba(15, 23, 42, 0.56);
+  background: rgba(221, 232, 236, 0.72);
 }
 
 .modal-note span {
   display: block;
   margin-bottom: 12px;
-  color: #8bd7ff;
+  color: #1f6f95;
   font-size: 14px;
   font-weight: 900;
   text-transform: uppercase;
@@ -826,7 +815,7 @@ const pathLit = (targetId) => {
 
 .modal-note strong {
   display: block;
-  color: #b7e7ff;
+  color: #4f3e32;
   font-size: clamp(17px, 1.5vw, 21px);
   line-height: 1.4;
 }

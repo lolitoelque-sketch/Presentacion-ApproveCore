@@ -24,12 +24,18 @@ layout: full
 
 <style>
 :root {
-  --ap-blue: #8bd7ff;
-  --ap-orange: #ffb28a;
-  --ap-ink: #0b0f14;
-  --ap-panel: rgba(11, 15, 20, 0.76);
-  --ap-muted: #8b94a6;
-  --ap-text: #d7deea;
+  --ap-paper: #f4f0e8;
+  --ap-paper-soft: #faf7f1;
+  --ap-grid: rgba(126, 93, 67, 0.1);
+  --ap-dot: rgba(116, 88, 68, 0.18);
+  --ap-brown: #7c2d12;
+  --ap-brown-soft: #a6653a;
+  --ap-blue: #1f6f95;
+  --ap-blue-soft: #dce7eb;
+  --ap-line: #d8cabd;
+  --ap-muted: #8d7b6d;
+  --ap-text: #4f3e32;
+  --ap-panel: rgba(250, 247, 241, 0.88);
 }
 
 .title-cover {
@@ -40,11 +46,13 @@ layout: full
   justify-items: start;
   gap: 28px;
   padding: clamp(70px, 10vh, 110px) clamp(32px, 5vw, 70px);
-  color: var(--ap-blue);
+  color: var(--ap-brown);
   background:
-    radial-gradient(circle at 28% 22%, rgba(125, 211, 252, 0.08), transparent 28%),
-    radial-gradient(circle at 78% 76%, rgba(255, 178, 138, 0.08), transparent 30%),
-    linear-gradient(135deg, #0b0f14 0%, #10141b 52%, #0b0f14 100%);
+    linear-gradient(rgba(126, 93, 67, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 93, 67, 0.075) 1px, transparent 1px),
+    radial-gradient(circle, var(--ap-dot) 1px, transparent 1.4px),
+    linear-gradient(180deg, #f8f4ed 0%, #eee8df 100%);
+  background-size: 72px 72px, 72px 72px, 24px 24px, auto;
   overflow: hidden;
   font-family: "Cascadia Code", "JetBrains Mono", "Fira Code", Consolas, ui-monospace, monospace;
 }
@@ -52,13 +60,9 @@ layout: full
 .title-cover::before {
   content: "";
   position: absolute;
-  inset: -80px;
-  background-image:
-    radial-gradient(circle, rgba(139, 148, 166, 0.22) 1px, transparent 1.5px),
-    linear-gradient(rgba(125, 211, 252, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 211, 252, 0.06) 1px, transparent 1px);
-  background-size: 40px 40px, 160px 160px, 160px 160px;
-  transform: rotate(-2deg);
+  inset: 0;
+  background: linear-gradient(180deg, rgba(244, 240, 232, 0), rgba(230, 235, 233, 0.78));
+  pointer-events: none;
 }
 
 .cover-eyebrow,
@@ -69,10 +73,11 @@ layout: full
 }
 
 .cover-eyebrow {
-  color: var(--ap-muted);
+  color: var(--ap-brown);
   font-size: 16px;
   font-weight: 900;
   letter-spacing: 0.32em;
+  text-transform: uppercase;
 }
 
 .title-cover h1 {
@@ -83,13 +88,13 @@ layout: full
   letter-spacing: 0;
   text-align: left;
   font-weight: 900;
-  text-shadow: 0 0 36px rgba(125, 211, 252, 0.16);
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.72);
 }
 
 .title-cover p {
   max-width: 850px;
   margin: 0;
-  color: #d7deea;
+  color: var(--ap-text);
   font-size: clamp(18px, 1.8vw, 25px);
   font-weight: 700;
   line-height: 1.45;
@@ -106,19 +111,20 @@ layout: full
 
 .cover-flow span {
   padding: 11px 14px;
-  border: 1px solid rgba(139, 215, 255, 0.34);
-  border-radius: 4px;
-  color: #d7deea;
-  background: rgba(11, 15, 20, 0.7);
+  border: 1px solid var(--ap-line);
+  border-radius: 999px;
+  color: var(--ap-brown);
+  background: rgba(250, 247, 241, 0.86);
   font-size: 15px;
   font-weight: 900;
   text-transform: uppercase;
+  box-shadow: 0 10px 22px rgba(92, 67, 49, 0.08);
 }
 
 .cover-flow i {
   width: 34px;
   height: 2px;
-  background: var(--ap-orange);
+  background: var(--ap-blue);
 }
 
 .ap-slide {
@@ -130,9 +136,11 @@ layout: full
   padding: clamp(52px, 7vh, 82px) clamp(34px, 6vw, 86px);
   color: var(--ap-text);
   background:
-    radial-gradient(circle at 18% 16%, rgba(125, 211, 252, 0.08), transparent 30%),
-    radial-gradient(circle at 82% 78%, rgba(255, 178, 138, 0.07), transparent 28%),
-    linear-gradient(135deg, #0b0f14 0%, #10141b 48%, #0b0f14 100%);
+    linear-gradient(rgba(126, 93, 67, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(126, 93, 67, 0.07) 1px, transparent 1px),
+    radial-gradient(circle, var(--ap-dot) 1px, transparent 1.4px),
+    linear-gradient(180deg, #f8f4ed 0%, #eee8df 100%);
+  background-size: 72px 72px, 72px 72px, 24px 24px, auto;
   overflow: hidden;
   font-family: "Cascadia Code", "JetBrains Mono", "Fira Code", Consolas, ui-monospace, monospace;
 }
@@ -140,12 +148,9 @@ layout: full
 .ap-slide::before {
   content: "";
   position: absolute;
-  inset: -80px;
-  background-image:
-    linear-gradient(rgba(125, 211, 252, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 211, 252, 0.055) 1px, transparent 1px);
-  background-size: 52px 52px;
-  transform: rotate(-2deg) scale(1.05);
+  inset: 0;
+  background: linear-gradient(180deg, rgba(244, 240, 232, 0), rgba(227, 234, 232, 0.62));
+  pointer-events: none;
 }
 
 .ap-slide > * {
@@ -153,7 +158,7 @@ layout: full
 }
 
 .ap-kicker {
-  color: var(--ap-muted);
+  color: var(--ap-brown);
   font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.22em;
@@ -163,7 +168,7 @@ layout: full
 .ap-slide h2 {
   max-width: 1040px;
   margin: 0;
-  color: var(--ap-blue);
+  color: var(--ap-brown);
   font-size: clamp(32px, 4.2vw, 58px);
   font-weight: 900;
   line-height: 1.05;
@@ -173,7 +178,7 @@ layout: full
 .ap-slide p {
   max-width: 1040px;
   margin: 0;
-  color: #f8fafc;
+  color: var(--ap-text);
   font-size: clamp(19px, 1.9vw, 26px);
   font-weight: 700;
   line-height: 1.45;
@@ -191,10 +196,10 @@ layout: full
 .ap-metric {
   min-height: 150px;
   padding: 22px;
-  border: 1px solid rgba(139, 148, 166, 0.32);
-  border-radius: 4px;
+  border: 1px solid var(--ap-line);
+  border-radius: 6px;
   background: var(--ap-panel);
-  backdrop-filter: blur(12px);
+  box-shadow: 0 14px 30px rgba(92, 67, 49, 0.08);
 }
 
 .ap-card strong,
@@ -203,7 +208,7 @@ layout: full
 .ap-metric strong {
   display: block;
   margin-bottom: 12px;
-  color: var(--ap-orange);
+  color: var(--ap-brown);
   font-size: 20px;
   font-weight: 900;
   line-height: 1.15;
@@ -213,7 +218,7 @@ layout: full
 .ap-step span,
 .ap-role span,
 .ap-metric span {
-  color: #d7deea;
+  color: var(--ap-text);
   font-size: 16px;
   font-weight: 700;
   line-height: 1.35;
@@ -235,9 +240,11 @@ layout: full
 
 .ap-list li {
   padding: 16px 18px;
-  border-left: 4px solid var(--ap-orange);
-  color: #e5e7eb;
-  background: rgba(11, 15, 20, 0.64);
+  border-left: 4px solid var(--ap-blue);
+  border-radius: 4px;
+  color: var(--ap-text);
+  background: rgba(250, 247, 241, 0.88);
+  box-shadow: 0 10px 22px rgba(92, 67, 49, 0.07);
   font-size: 19px;
   font-weight: 800;
   line-height: 1.3;
@@ -275,6 +282,12 @@ layout: full
   }
 }
 </style>
+
+---
+layout: full
+---
+
+<InfiniteFlow />
 
 ---
 layout: full
@@ -352,12 +365,6 @@ layout: full
     <div class="ap-card"><strong>SAP / PO</strong><span>Conexion operativa con correlativos, carritos, PO y seguimiento financiero.</span></div>
   </div>
 </section>
-
----
-layout: full
----
-
-<InfiniteFlow />
 
 ---
 layout: full
