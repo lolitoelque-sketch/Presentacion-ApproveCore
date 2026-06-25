@@ -1,0 +1,22 @@
+:root {
+  --slidev-controls-foreground: #4f3e32;
+}
+
+nav.flex.flex-col > div.bg-main,
+nav.flex.flex-col > div.slidev-glass-effect,
+nav.flex.flex-col > div[class~="bg-main"],
+nav.flex.flex-col > div[class~="slidev-glass-effect"] {
+  background: rgba(250, 247, 241, 0.92) !important;
+  border: 1px solid #d8cabd !important;
+  border-radius: 6px !important;
+  color: #4f3e32 !important;
+  box-shadow: 0 14px 30px rgba(92, 67, 49, 0.12) !important;
+  backdrop-filter: blur(8px);
+}
+
+nav.flex.flex-col > div.bg-main *,
+nav.flex.flex-col > div.slidev-glass-effect *,
+nav.flex.flex-col > div[class~="bg-main"] *,
+nav.flex.flex-col > div[class~="slidev-glass-effect"] * {
+  color: #4f3e32 !important;
+}

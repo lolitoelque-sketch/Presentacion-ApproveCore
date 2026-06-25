@@ -2,25 +2,7 @@
 layout: full
 ---
 
-<section class="title-cover">
-  <div class="cover-eyebrow">APPRUVECORE</div>
-  <h1>Gestion y trazabilidad de solicitudes presupuestales</h1>
-  <p>
-    Una presentacion para explicar el paso de un proceso basado en correos a un flujo
-    controlado, medible y visible de inicio a fin.
-  </p>
-  <div class="cover-flow">
-    <span>Solicitud</span>
-    <i />
-    <span>Aprobacion</span>
-    <i />
-    <span>Asignacion</span>
-    <i />
-    <span>Carrito / PO</span>
-    <i />
-    <span>Cierre</span>
-  </div>
-</section>
+<PresentationHub />
 
 <style>
 :root {
@@ -36,6 +18,69 @@ layout: full
   --ap-muted: #8d7b6d;
   --ap-text: #4f3e32;
   --ap-panel: rgba(250, 247, 241, 0.88);
+  --slidev-controls-foreground: var(--ap-text);
+}
+
+.slidev-glass-effect,
+.bg-main {
+  background-color: rgba(250, 247, 241, 0.88) !important;
+}
+
+[class*="z-nav"] .bg-main,
+[class*="z-nav"] .slidev-glass-effect {
+  border: 1px solid var(--ap-line) !important;
+  border-radius: 6px !important;
+  color: var(--ap-text) !important;
+  box-shadow: 0 14px 30px rgba(92, 67, 49, 0.12) !important;
+  backdrop-filter: blur(8px);
+}
+
+[class*="z-nav"] button,
+[class*="z-nav"] [role="button"] {
+  color: var(--ap-text) !important;
+}
+
+[class*="z-nav"] button:hover,
+[class*="z-nav"] [role="button"]:hover {
+  color: var(--ap-blue) !important;
+}
+
+nav.flex.flex-col > div.bg-main,
+nav.flex.flex-col > div.slidev-glass-effect,
+nav.flex.flex-col > div[class*="bg-main"],
+nav.flex.flex-col > div[class*="slidev-glass-effect"] {
+  background: rgba(250, 247, 241, 0.92) !important;
+  border: 1px solid var(--ap-line) !important;
+  border-radius: 6px !important;
+  color: var(--ap-text) !important;
+  box-shadow: 0 14px 30px rgba(92, 67, 49, 0.12) !important;
+  backdrop-filter: blur(8px);
+}
+
+nav.flex.flex-col > div.bg-main *,
+nav.flex.flex-col > div.slidev-glass-effect *,
+nav.flex.flex-col > div[class*="bg-main"] *,
+nav.flex.flex-col > div[class*="slidev-glass-effect"] * {
+  color: var(--ap-text) !important;
+}
+
+:global(nav.flex.flex-col > div.bg-main),
+:global(nav.flex.flex-col > div.slidev-glass-effect),
+:global(nav.flex.flex-col > div[class*="bg-main"]),
+:global(nav.flex.flex-col > div[class*="slidev-glass-effect"]) {
+  background: rgba(250, 247, 241, 0.92) !important;
+  border: 1px solid #d8cabd !important;
+  border-radius: 6px !important;
+  color: #4f3e32 !important;
+  box-shadow: 0 14px 30px rgba(92, 67, 49, 0.12) !important;
+  backdrop-filter: blur(8px);
+}
+
+:global(nav.flex.flex-col > div.bg-main *),
+:global(nav.flex.flex-col > div.slidev-glass-effect *),
+:global(nav.flex.flex-col > div[class*="bg-main"] *),
+:global(nav.flex.flex-col > div[class*="slidev-glass-effect"] *) {
+  color: #4f3e32 !important;
 }
 
 .title-cover {
@@ -287,201 +332,10 @@ layout: full
 layout: full
 ---
 
+<ContextFlow />
+
+---
+layout: full
+---
+
 <InfiniteFlow />
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Contexto</div>
-  <h2>El proceso necesitaba pasar de coordinaciones manuales a tickets trazables.</h2>
-  <p>
-    Las solicitudes se gestionaban con correos, archivos adjuntos y seguimiento individual.
-    Eso hacia dificil saber el estado real, el responsable actual y la informacion pendiente
-    para avanzar.
-  </p>
-  <div class="ap-grid">
-    <div class="ap-card"><strong>Visibilidad limitada</strong><span>No existia una bandeja unica para consultar el avance de cada solicitud.</span></div>
-    <div class="ap-card"><strong>Responsables dispersos</strong><span>La siguiente accion dependia de cadenas de correo y coordinaciones fuera del sistema.</span></div>
-    <div class="ap-card"><strong>Control financiero fragil</strong><span>Montos, carritos, PO y estados podian quedar repartidos en varias fuentes.</span></div>
-  </div>
-</section>
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Solucion</div>
-  <h2>AppruveCore centraliza solicitudes, aprobaciones, asignaciones y cierre operativo.</h2>
-  <p>
-    La aplicacion convierte cada necesidad en un ticket con datos estructurados, ruta de
-    aprobacion, responsable visible, asignaciones financieras y evidencia para auditoria.
-  </p>
-  <div class="ap-grid">
-    <div class="ap-card"><strong>Tickets</strong><span>Registro de proyecto, actividad, subactividad, monto, moneda, TDP y sustentos.</span></div>
-    <div class="ap-card"><strong>Flujos</strong><span>Aprobaciones por tipo de solicitud, area responsable y rol configurado.</span></div>
-    <div class="ap-card"><strong>Seguimiento</strong><span>Carrito, TA/ERC, PO, estados financieros, observaciones y cierre.</span></div>
-  </div>
-</section>
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Beneficios</div>
-  <h2>La app permite saber que se solicito, quien lo aprobo, donde esta detenido y que falta.</h2>
-  <div class="ap-two">
-    <ul class="ap-list">
-      <li>Centralizacion de solicitudes y bandejas de control.</li>
-      <li>Trazabilidad completa del ticket y sus cambios.</li>
-      <li>Menor dependencia del correo y menos reprocesos.</li>
-      <li>Responsables visibles por estado y flujo.</li>
-    </ul>
-    <ul class="ap-list">
-      <li>Validacion por roles definidos.</li>
-      <li>Seguimiento de carritos, PO y estados financieros.</li>
-      <li>Control presupuestal por proyecto, etapa y TDP.</li>
-      <li>Informacion historica disponible para consulta y auditoria.</li>
-    </ul>
-  </div>
-</section>
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Herramientas</div>
-  <h2>La solucion aprovecha el ecosistema Microsoft disponible en la organizacion.</h2>
-  <div class="ap-grid">
-    <div class="ap-card"><strong>Power Apps</strong><span>Interfaz principal para crear tickets, aprobar, observar, consultar y cerrar.</span></div>
-    <div class="ap-card"><strong>SharePoint Lists</strong><span>Base estructurada para tickets, asignaciones, usuarios, proyectos, rutas y catalogos.</span></div>
-    <div class="ap-card"><strong>Power Automate</strong><span>Automatizacion de actualizaciones, sincronizacion SAP y procesos complementarios.</span></div>
-    <div class="ap-card"><strong>Power BI</strong><span>Analisis presupuestal y visualizacion de avance por proyecto.</span></div>
-    <div class="ap-card"><strong>Microsoft 365</strong><span>Integracion con usuarios corporativos, permisos y operacion diaria.</span></div>
-    <div class="ap-card"><strong>SAP / PO</strong><span>Conexion operativa con correlativos, carritos, PO y seguimiento financiero.</span></div>
-  </div>
-</section>
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Arquitectura funcional</div>
-  <h2>Cada accion del usuario queda registrada en datos estructurados.</h2>
-  <div class="ap-flowline">
-    <div class="ap-step"><small>01</small><strong>Power Apps</strong><span>Entrada del usuario y pantallas por rol.</span></div>
-    <div class="ap-step"><small>02</small><strong>SharePoint</strong><span>Tickets, asignaciones, usuarios, rutas, proyectos y catalogos.</span></div>
-    <div class="ap-step"><small>03</small><strong>Power Automate</strong><span>Actualizaciones, sincronizaciones y procesos de soporte.</span></div>
-    <div class="ap-step"><small>04</small><strong>SAP / PO</strong><span>Correlativos, carritos, TA/ERC y avance financiero.</span></div>
-    <div class="ap-step"><small>05</small><strong>Dashboards</strong><span>Lectura consolidada del presupuesto y estados.</span></div>
-  </div>
-</section>
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Pantallas principales</div>
-  <h2>La aplicacion se organiza alrededor de las etapas naturales del ticket.</h2>
-  <div class="ap-grid">
-    <div class="ap-card"><strong>Menu principal</strong><span>Entrada central con opciones segun perfil.</span></div>
-    <div class="ap-card"><strong>Creacion de tickets</strong><span>Registro de proyecto, monto, TDP, asignaciones y sustentos.</span></div>
-    <div class="ap-card"><strong>Historial</strong><span>Consulta de estados, fechas, responsables y detalle del flujo.</span></div>
-    <div class="ap-card"><strong>Bandejas</strong><span>Aprobaciones, observaciones y acciones pendientes por rol.</span></div>
-    <div class="ap-card"><strong>Carritos</strong><span>Control de carrito, TA/ERC, correlativo SAP y PO.</span></div>
-    <div class="ap-card"><strong>Presupuesto</strong><span>Dashboard, tarjetero y estado financiero de asignaciones.</span></div>
-  </div>
-</section>
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Proceso E2E</div>
-  <h2>El ticket tiene una vida completa y trazable dentro de la aplicacion.</h2>
-  <div class="ap-flowline">
-    <div class="ap-step"><small>Paso 1</small><strong>Nacimiento</strong><span>El solicitante registra la necesidad, proyecto, monto, TDP y sustentos.</span></div>
-    <div class="ap-step"><small>Paso 2</small><strong>Aprobacion</strong><span>La app dirige el ticket al responsable segun ruta y flujo.</span></div>
-    <div class="ap-step"><small>Paso 3</small><strong>Validacion</strong><span>Los aprobadores revisan datos, adjuntos, coherencia y presupuesto.</span></div>
-    <div class="ap-step"><small>Paso 4</small><strong>Asignacion</strong><span>Se valida CAPEX/OPEX, TDP, centro de costo y correlativo SAP.</span></div>
-    <div class="ap-step"><small>Paso 5</small><strong>Cierre</strong><span>Se registra carrito, TA/ERC o PO y queda historial para auditoria.</span></div>
-  </div>
-</section>
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Flujos principales</div>
-  <h2>No todas las solicitudes siguen el mismo camino, pero todas mantienen la misma trazabilidad.</h2>
-  <div class="ap-grid">
-    <div class="ap-card"><strong>PMO</strong><span>Solicitante PMO, PM o GP, gerencia, asignadores CAPEX/OPEX y cierre operativo.</span></div>
-    <div class="ap-card"><strong>OC / IEC</strong><span>Validacion jerarquica operativa antes de pasar a asignacion y seguimiento final.</span></div>
-    <div class="ap-card"><strong>TA / ERC</strong><span>El solicitante vuelve al final para registrar el codigo TA/ERC cuando corresponde.</span></div>
-    <div class="ap-card"><strong>Reembolsos</strong><span>Sustento, validacion administrativa o presupuestal y cierre por responsable final.</span></div>
-    <div class="ap-card ap-wide"><strong>Logica comun</strong><span>Registrar, aprobar, observar si hace falta, asignar presupuesto, ejecutar y cerrar con evidencia.</span></div>
-  </div>
-</section>
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Usuarios y aprobadores</div>
-  <h2>Cada usuario ve y ejecuta acciones segun su responsabilidad dentro del proceso.</h2>
-  <div class="ap-grid">
-    <div class="ap-role"><strong>Solicitante</strong><span>Crea tickets, registra asignaciones, adjunta sustentos, corrige observaciones y hace seguimiento.</span></div>
-    <div class="ap-role"><strong>Aprobadores</strong><span>Validan informacion, montos, sustentos y coherencia con el proyecto.</span></div>
-    <div class="ap-role"><strong>Asignadores CAPEX/OPEX</strong><span>Revisan TDP, centro de costo, presupuesto y consistencia financiera.</span></div>
-    <div class="ap-role"><strong>Asistente / Liquidaciones</strong><span>Registran carrito, validan avance operativo, apoyan PO y cierre.</span></div>
-    <div class="ap-role"><strong>Controller</strong><span>Consulta presupuesto, estados financieros e informacion consolidada.</span></div>
-    <div class="ap-role"><strong>Administrador funcional</strong><span>Mantiene usuarios, rutas, catalogos y reglas de visibilidad.</span></div>
-  </div>
-</section>
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Demo sugerida</div>
-  <h2>La capacitacion debe mostrar lo que cada usuario hara en su dia a dia.</h2>
-  <div class="ap-two">
-    <ul class="ap-list">
-      <li>Ingresar al menu principal y crear un ticket.</li>
-      <li>Revisar asignaciones, historial y responsable actual.</li>
-      <li>Aprobar un ticket como aprobador.</li>
-      <li>Observar, corregir y retornar al flujo normal.</li>
-    </ul>
-    <ul class="ap-list">
-      <li>Asignar TDP o presupuesto.</li>
-      <li>Registrar carrito o codigo TA/ERC.</li>
-      <li>Consultar dashboard, tarjetero y estado financiero.</li>
-      <li>Cerrar con el resumen completo del ticket.</li>
-    </ul>
-  </div>
-</section>
-
----
-layout: full
----
-
-<section class="ap-slide">
-  <div class="ap-kicker">Cierre</div>
-  <h2>AppruveCore es una base tecnologica para estandarizar y escalar el control de solicitudes.</h2>
-  <div class="ap-grid">
-    <div class="ap-metric"><strong>Menos correos</strong><span>La coordinacion se convierte en flujo controlado.</span></div>
-    <div class="ap-metric"><strong>Mas trazabilidad</strong><span>Estados, responsables, observaciones y decisiones quedan registrados.</span></div>
-    <div class="ap-metric"><strong>Mayor control</strong><span>Presupuesto, carrito, PO y cierre se consultan desde la aplicacion.</span></div>
-    <div class="ap-metric"><strong>Proximos pasos</strong><span>Marcha blanca, capacitacion por perfil, feedback y ampliacion progresiva.</span></div>
-  </div>
-</section>
